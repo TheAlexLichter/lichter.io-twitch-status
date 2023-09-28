@@ -1,0 +1,39 @@
+# This workflow runs every five minutes to check for a new twitch status
+name: Check for new Twitch status
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          cache: pnpm
+
+      - name: Install
+        run: pnpm i --frozen-lockfile --prefer-offline
+
+      - name: Check for twitch status update
+        run: pnpm start
+        env:
+
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          base: HEAD
+          filters: |
+            any:
+              - '**/*'
+
+      - name: Commit latest status
+        if: ${{ steps.filter.outputs.any == 'true' }}
+        uses: stefanzweifel/git-auto-commit-action@v4.7.2
+        with:
+          commit_message: chore: new twitch status
