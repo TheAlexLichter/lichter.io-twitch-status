@@ -1,6 +1,7 @@
 # This workflow runs every five minutes to check for a new twitch status
 name: Check for new Twitch status
 on:
+  workflow_dispatch:
   schedule:
     - cron: '*/5 * * * *'
 
