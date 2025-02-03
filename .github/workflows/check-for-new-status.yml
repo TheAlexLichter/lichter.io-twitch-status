@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: '22.x'
 
-      - name: Enable Corepack
-        run: corepack enable
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
 
       # Yarn dependencies cannot be cached until pnpm is installed
       # WORKAROUND: https://github.com/actions/setup-node/issues/531
