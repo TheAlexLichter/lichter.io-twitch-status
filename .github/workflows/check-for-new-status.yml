@@ -18,7 +18,7 @@ jobs:
           node-version: '22.x'
 
       - name: Enable Corepack
-        run: corepack enable
+        run: COREPACK_INTEGRITY_KEYS=0 corepack enable
 
       # Yarn dependencies cannot be cached until pnpm is installed
       # WORKAROUND: https://github.com/actions/setup-node/issues/531
