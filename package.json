@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "Alexander Lichter <npm@lichter.io>",
   "license": "MIT",
-  "packageManager": "pnpm@9.15.5+sha256.8472168c3e1fd0bff287e694b053fccbbf20579a3ff9526b6333beab8df65a8d",
+  "packageManager": "pnpm@10.0.0+sha256.43abf6e720fb7bc53c591b0862605c7d323d0a9d2dd33bcac07b062e13cf4948",
   "devDependencies": {
     "@types/node": "^20.7.1",
     "jiti": "^2.4.2",
